@@ -93,10 +93,19 @@ private:
   BSTNode *insertHelper(BSTNode *root, BSTNode *node);
   BSTNode *removeHelper(BSTNode *root, string data);
 
+  string inOrderHelper(BSTNode *node);
+  string preOrderHelper(BSTNode *root);
+  string postOrderHelper(BSTNode *node);
+
 public:
   // constructors
   BSTree() { root = NULL; }
   BSTree(BSTNode *root) : root(root) {}
+
+  // display functions
+  string inOrder();
+  string preOrder();
+  string postOrder();
 
   // accessor functions
   BSTNode *getRoot() { return root; }
@@ -109,6 +118,41 @@ public:
   // removes a node from the tree
   BSTNode *remove(string data);
 };
+
+string BSTree::inOrder() { return inOrderHelper(root); }
+string BSTree::inOrderHelper(BSTNode *node) {
+  string out = "";
+  if (node != NULL) {
+    out.append(inOrderHelper(node->getLeft()));
+    out.append(node->getRecord());
+    out.append("\n");
+    out.append(inOrderHelper(node->getRight()));
+  }
+  return out;
+}
+
+string BSTree::preOrder() { return preOrderHelper(root); }
+string BSTree::preOrderHelper(BSTNode *node) {
+  string out = "";
+  if (node != NULL) {
+    out.append(node->getRecord());
+    out.append("\n");
+    out.append(preOrderHelper(node->getLeft()));
+    out.append(preOrderHelper(node->getRight()));
+  }
+  return out;
+}
+string BSTree::postOrder() { return postOrderHelper(root); }
+string BSTree::postOrderHelper(BSTNode *node) {
+  string out = "";
+  if (node != NULL) {
+    out.append(postOrderHelper(node->getLeft()));
+    out.append(postOrderHelper(node->getRight()));
+    out.append(node->getRecord());
+    out.append("\n");
+  }
+  return out;
+}
 
 BSTNode *BSTree::insert(BSTNode *node) {
   if (root == NULL) {
