@@ -1,5 +1,5 @@
 #include "BSTree.h"
-#include "VisualizeTree.h"
+#include "VisualizeBST.h"
 
 int main() {
   BSTree *tree = new BSTree();

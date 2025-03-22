@@ -55,6 +55,7 @@ AVLNode::AVLNode(string _month, int _year, string _artist, string _title,
   recordLabel = _recordLbl;
   weeksAtNumberOne = _weeksAtNumberOne;
   key = title; // important
+  left = right = NULL;
 }
 // copies data from one node to another
 void AVLNode::copyData(AVLNode *n) {
@@ -90,10 +91,10 @@ private:
   AVLNode *insertHelper(AVLNode *,
                         AVLNode *); // Recursive counterpart of insert
   AVLNode *removeNodeHelper(AVLNode *,
-                            AVLNode *); // Recursive counterpart of delete
-  string preOrderHelper(AVLNode *);     // Recursive counterpart of preorder
-  string postOrderHelper(AVLNode *);    // Recursive counterpart of postorder
-  string inOrderHelper(AVLNode *);      // Recursive counterpart of inorder
+                            string); // Recursive counterpart of delete
+  string preOrderHelper(AVLNode *);  // Recursive counterpart of preorder
+  string postOrderHelper(AVLNode *); // Recursive counterpart of postorder
+  string inOrderHelper(AVLNode *);   // Recursive counterpart of inorder
   AVLNode *rotateRight(AVLNode *);
   AVLNode *rotateLeft(AVLNode *);
   AVLNode *rotateDoubleRight(AVLNode *);
@@ -108,7 +109,7 @@ public:
 
   AVLNode *getRoot() { return root; }
   void insert(AVLNode *node) { root = insertHelper(root, node); }
-  void remove(AVLNode *node) { root = removeNodeHelper(root, node); }
+  void remove(string data) { root = removeNodeHelper(root, data); }
   string preOrder() { return preOrderHelper(root); }
   string postOrder() { return postOrderHelper(root); }
   string inOrder() { return inOrderHelper(root); }
@@ -155,7 +156,7 @@ AVLNode *AVLTree::insertHelper(AVLNode *ptr, AVLNode *node) {
   return (ptr);
 }
 
-AVLNode *AVLTree::removeNodeHelper(AVLNode *ptr, AVLNode *node) {
+AVLNode *AVLTree::removeNodeHelper(AVLNode *ptr, string data) {
 
   if (ptr == NULL) // Node location is empty
   {
@@ -165,9 +166,9 @@ AVLNode *AVLTree::removeNodeHelper(AVLNode *ptr, AVLNode *node) {
   // else the tree/subtree is not empty
   AVLNode *successor;
 
-  if (node->getData() > ptr->getData()) // Search in Right sub-tree of ptr
+  if (data > ptr->getData()) // Search in Right sub-tree of ptr
   {
-    ptr->setRight(removeNodeHelper(ptr->getRight(), node));
+    ptr->setRight(removeNodeHelper(ptr->getRight(), data));
     if (calcBalance(ptr) == 2) // Subtree is too heavy on the left of ptr
     {
       if (calcBalance(ptr->getLeft()) >= 0)
@@ -175,9 +176,9 @@ AVLNode *AVLTree::removeNodeHelper(AVLNode *ptr, AVLNode *node) {
       else
         ptr = rotateLeftRight(ptr);
     }
-  } else if (node->getData() < ptr->getData()) // Search the Left sub-tree
+  } else if (data < ptr->getData()) // Search the Left sub-tree
   {
-    ptr->setLeft(removeNodeHelper(ptr->getLeft(), node));
+    ptr->setLeft(removeNodeHelper(ptr->getLeft(), data));
     if (calcBalance(ptr) == -2) // Rebalance: ptr is too heavy on the right
     {
       if (calcBalance(ptr->getRight()) <= 0)
@@ -193,7 +194,7 @@ AVLNode *AVLTree::removeNodeHelper(AVLNode *ptr, AVLNode *node) {
         successor = successor->getLeft();
 
       ptr->copyData(successor);
-      ptr->setRight(removeNodeHelper(ptr->getRight(), ptr));
+      ptr->setRight(removeNodeHelper(ptr->getRight(), data));
       if (calcBalance(ptr) == 2) // Rebalance: ptr is too heavy on the left
       {
         if (calcBalance(ptr->getLeft()) >= 0)

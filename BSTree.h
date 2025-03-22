@@ -53,6 +53,7 @@ BSTNode::BSTNode(string _month, int _year, string _artist, string _title,
   recordLabel = _recordLbl;
   weeksAtNumberOne = _weeksAtNumberOne;
   key = title; // important
+  left = right = NULL;
 }
 
 // copies data from one node to another
