@@ -5,7 +5,7 @@
     Purpose:
     BSTree.h,BSTNode.h
     This file contains the definition of the Binary Search Tree (BST) and its
-    Node classes.
+    Node class.
 */
 
 #ifndef BSTREE_H

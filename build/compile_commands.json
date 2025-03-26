@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2/include -I/home/ajani/Code/DSA-Project2/Visualizers -I/home/ajani/Code/DSA-Project2/Tests -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2  -o CMakeFiles/wxApp.dir/main.cpp.o -c /home/ajani/Code/DSA-Project2/main.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/main.cpp",
+  "output": "CMakeFiles/wxApp.dir/main.cpp.o"
+}
+]

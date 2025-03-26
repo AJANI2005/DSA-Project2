@@ -1,0 +1,3 @@
+/home/ajani/Code/DSA-Project2/build/CMakeFiles/wxApp.dir
+/home/ajani/Code/DSA-Project2/build/CMakeFiles/edit_cache.dir
+/home/ajani/Code/DSA-Project2/build/CMakeFiles/rebuild_cache.dir

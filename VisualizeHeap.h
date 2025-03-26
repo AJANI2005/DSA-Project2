@@ -8,7 +8,8 @@
 #ifndef VisualizeHeap_h
 #define VisualizeHeap_h
 
-#include "BinHeap.h"
+#include "MaxHeap.h"
+#include "MinHeap.h"
 
 #include <algorithm>
 #include <iostream>
@@ -174,13 +175,13 @@ vector<string> row_formatter(const display_rows &rows_disp) {
 display_rows get_row_display(MaxHeap *ptr) {
   // start off by traversing the tree to
   // build a vector of vectors of HeapNode pointers
-  vector<HeapNode *> traversal_stack;
-  vector<vector<HeapNode *>> rows;
+  vector<MaxHeapNode *> traversal_stack;
+  vector<vector<MaxHeapNode *>> rows;
 
   if (!ptr->getRoot())
     return display_rows();
 
-  HeapNode *node = ptr->getRoot();
+  MaxHeapNode *node = ptr->getRoot();
   const int max_depth = ptr->getRoot()->max_depth();
   rows.resize(max_depth);
   int depth = 0;
@@ -239,7 +240,7 @@ display_rows get_row_display(MaxHeap *ptr) {
   stringstream ss;
   for (const auto &row : rows) {
     rows_disp.emplace_back();
-    for (HeapNode *pn : row) {
+    for (MaxHeapNode *pn : row) {
       if (pn) {
         ss << pn->getData();
         //=============================================================
@@ -262,13 +263,13 @@ display_rows get_row_display(MaxHeap *ptr) {
 display_rows get_row_display(MinHeap *ptr) {
   // start off by traversing the tree to
   // build a vector of vectors of HeapNode pointers
-  vector<HeapNode *> traversal_stack;
-  vector<vector<HeapNode *>> rows;
+  vector<MinHeapNode *> traversal_stack;
+  vector<vector<MinHeapNode *>> rows;
 
   if (!ptr->getRoot())
     return display_rows();
 
-  HeapNode *node = ptr->getRoot();
+  MinHeapNode *node = ptr->getRoot();
   const int max_depth = ptr->getRoot()->max_depth();
   rows.resize(max_depth);
   int depth = 0;
@@ -327,7 +328,7 @@ display_rows get_row_display(MinHeap *ptr) {
   stringstream ss;
   for (const auto &row : rows) {
     rows_disp.emplace_back();
-    for (HeapNode *pn : row) {
+    for (MinHeapNode *pn : row) {
       if (pn) {
         ss << pn->getData();
         //=============================================================

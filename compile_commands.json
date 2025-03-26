@@ -1,0 +1,38 @@
+[
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructures.dir/main.cpp.o -c /home/ajani/Code/DSA-Project2/main.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/main.cpp",
+  "output": "CMakeFiles/DataStructures.dir/main.cpp.o"
+},
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructuresTests.dir/Tests/testAVL.cpp.o -c /home/ajani/Code/DSA-Project2/Tests/testAVL.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/Tests/testAVL.cpp",
+  "output": "CMakeFiles/DataStructuresTests.dir/Tests/testAVL.cpp.o"
+},
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructuresTests.dir/Tests/testBST.cpp.o -c /home/ajani/Code/DSA-Project2/Tests/testBST.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/Tests/testBST.cpp",
+  "output": "CMakeFiles/DataStructuresTests.dir/Tests/testBST.cpp.o"
+},
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructuresTests.dir/Tests/testHeap.cpp.o -c /home/ajani/Code/DSA-Project2/Tests/testHeap.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/Tests/testHeap.cpp",
+  "output": "CMakeFiles/DataStructuresTests.dir/Tests/testHeap.cpp.o"
+},
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructuresTests.dir/Tests/testRBT.cpp.o -c /home/ajani/Code/DSA-Project2/Tests/testRBT.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/Tests/testRBT.cpp",
+  "output": "CMakeFiles/DataStructuresTests.dir/Tests/testRBT.cpp.o"
+},
+{
+  "directory": "/home/ajani/Code/DSA-Project2/build",
+  "command": "/usr/bin/c++ -DWXUSINGDLL -D_FILE_OFFSET_BITS=64 -D__WXGTK3__ -D__WXGTK__ -I/home/ajani/Code/DSA-Project2 -I/home/ajani/Code/DSA-Project2/Visualizers -isystem /usr/lib/wx/include/gtk3-unicode-3.2 -isystem /usr/include/wx-3.2 -std=gnu++17 -o CMakeFiles/DataStructuresTests.dir/Tests/testSplay.cpp.o -c /home/ajani/Code/DSA-Project2/Tests/testSplay.cpp",
+  "file": "/home/ajani/Code/DSA-Project2/Tests/testSplay.cpp",
+  "output": "CMakeFiles/DataStructuresTests.dir/Tests/testSplay.cpp.o"
+}
+]
