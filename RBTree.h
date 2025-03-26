@@ -35,6 +35,7 @@ public:
   // constructor
   RBTNode(string _month, int _year, string _artist, string _title,
           string _recordLbl, int _weeksAtNumberOne);
+  RBTNode() { leftPtr = rightPtr = parentPtr = NULL; }
 
   // accessor functions
   void copyData(RBTNode *ptr);

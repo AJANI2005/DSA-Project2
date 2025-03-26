@@ -30,6 +30,7 @@ public:
   // constructor
   AVLNode(string _month, int _year, string _artist, string _title,
           string _recordLbl, int _weeksAtNumberOne);
+  AVLNode() { left = right = NULL; }
 
   // Mutator functions
   void copyData(AVLNode *n);

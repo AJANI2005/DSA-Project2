@@ -30,6 +30,7 @@ public:
   // constructor
   BSTNode(string _month, int _year, string _artist, string _title,
           string _recordLbl, int _weeksAtNumberOne);
+  BSTNode() { left = right = NULL; }
 
   // accessor functions
   string getData() { return key; }
