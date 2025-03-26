@@ -89,7 +89,6 @@ private:
 
   // helper functions for insertion and deletion
   BSTNode *successor(BSTNode *node);
-  BSTNode *predecessor(BSTNode *node);
 
   BSTNode *insertHelper(BSTNode *root, BSTNode *node);
   BSTNode *removeHelper(BSTNode *root, string data);
@@ -166,8 +165,7 @@ BSTNode *BSTree::insert(BSTNode *node) {
 BSTNode *BSTree::insertHelper(BSTNode *ptr, BSTNode *node) {
   // case 1 : tree is empty , set ptr to node
   if (ptr == NULL) {
-    ptr = node;
-    return ptr;
+    return node;
   }
   // case 2 : node data is greater than or equal to  ptr
   else if (node->getData() >= ptr->getData()) {
@@ -214,21 +212,19 @@ BSTNode *BSTree::removeHelper(BSTNode *ptr, string data) {
       ptr = NULL;
     }
 
-    // case 4 - 2 : ptr has a right child
-    else if (ptr->getRight() != NULL) {
-      // find a successor
-      // and copy successor data to the current node (that is being deleted)
-      ptr->copyData(successor(ptr));
-      // remove the successor node
-      ptr->setRight(removeHelper(ptr->getRight(), ptr->getData()));
+    // case 4 - 2 : ptr has both children
+    else if (ptr->getRight() != NULL && ptr->getLeft() != NULL) {
+      BSTNode *temp = successor(ptr);
+      ptr->copyData(temp);
+      ptr->setRight(removeHelper(ptr->getRight(), temp->getData()));
     }
-    // case 4 - 3 : ptr has a left child
-    else if (ptr->getLeft() != NULL) {
-      // find a predecessor
-      // and copy predecessor data to the current node (that is being deleted)
-      ptr->copyData(predecessor(ptr));
-      // remove the predecessor node
-      ptr->setRight(removeHelper(ptr->getLeft(), ptr->getData()));
+
+    // case 4 - 3 : ptr has only one child
+    else {
+      BSTNode *child =
+          (ptr->getLeft() != NULL) ? ptr->getLeft() : ptr->getRight();
+      delete ptr;
+      return child;
     }
   }
   return ptr;
@@ -239,15 +235,6 @@ BSTNode *BSTree::successor(BSTNode *node) {
   BSTNode *ptr = node->getRight();
   while (ptr->getLeft() != NULL) {
     ptr = ptr->getLeft();
-  }
-  return ptr;
-}
-
-BSTNode *BSTree::predecessor(BSTNode *node) {
-  // find the largest value below the left child of this node
-  BSTNode *ptr = node->getLeft();
-  while (ptr->getRight() != NULL) {
-    ptr = ptr->getRight();
   }
   return ptr;
 }
